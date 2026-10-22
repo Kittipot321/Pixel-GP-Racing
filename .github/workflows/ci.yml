@@ -7,11 +7,14 @@
 
 name: CI
 
+# Automatic runs on push/pull_request are disabled for now; run it by hand
+# from the Actions tab. To re-enable, restore:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   verify:
