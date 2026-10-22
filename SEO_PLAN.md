@@ -77,3 +77,4 @@
 
 - Server-side rendering หรือ prerender (เกินจำเป็น เพราะมีหน้าสาธารณะหน้าเดียว)
 - แก้ปัญหา `RunningStatus` ใน `PlayPage.tsx` ที่ทำให้ `npm run build` และเทสต์ 8 ตัวพัง (เป็นปัญหาที่มีอยู่ก่อน แยกทำอีกงาน)
+
