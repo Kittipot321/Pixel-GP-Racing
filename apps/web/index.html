@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel GP Racing - เกมทายผลแข่งรถ F1 พิกเซล</title>
+    <meta
+      name="description"
+      content="Pixel GP Racing — เกมทายว่ารถ F1 พิกเซลสีไหนจะเข้าเส้นชัยก่อน ลุ้นผลใน 15 วินาที เล่นฟรีบนเว็บ ไม่ต้องดาวน์โหลด"
+    />
+    <meta name="theme-color" content="#10131a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pixel GP Racing" />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:title" content="Pixel GP Racing - เกมทายผลแข่งรถ F1 พิกเซล" />
+    <meta property="og:description" content="Pixel GP Racing — เกมทายว่ารถ F1 สีไหนจะเป็นผู้ชนะ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Apply the theme before the first paint (same rule as src/theme/theme-context.tsx):
+      // the saved choice, else the system setting, else dark.
+      (function () {
+        var theme = 'dark';
+        try {
+          var saved = localStorage.getItem('pixel-race.theme');
+          if (saved === 'light' || saved === 'dark') {
+            theme = saved;
+          } else if (window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches) {
+            theme = 'light';
+          }
+        } catch (e) {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

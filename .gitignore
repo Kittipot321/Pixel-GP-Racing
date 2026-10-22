@@ -1,0 +1,54 @@
+# BEGIN AI-DLC:gitignore
+# AI-DLC: local working files
+aidlc/active-space
+aidlc/spaces/*/intents/active-intent
+aidlc/.aidlc-clone-id
+aidlc.settings.local.json
+aidlc/.aidlc-unit-scope.json
+aidlc/.aidlc-unit-parked
+aidlc/.aidlc-claim-generations.json
+aidlc/.aidlc-unit-participant
+aidlc/.aidlc-claim-registry.json
+aidlc/.aidlc-unit-releases/
+aidlc/.aidlc-unit-merges/
+aidlc/.aidlc-active-space-*.tmp
+aidlc/.aidlc-sessions/
+aidlc/spaces/*/intents/.aidlc-*
+**/aidlc/spaces/*/intents/**/.aidlc-engine/
+**/aidlc/spaces/*/intents/**/.aidlc-sensors/
+aidlc/spaces/*/knowledge/documentkb/.journal/
+aidlc/spaces/*/knowledge/.sources.local.json
+aidlc/spaces/*/intents/*/runtime-graph.json
+aidlc/spaces/*/intents/*/.aidlc-*
+aidlc/diagnostics/
+.claude/settings.local.json
+aidlc/.aidlc-turn-counter
+aidlc/.aidlc-readonly-latch
+.kiro/steering/aidlc-active-memory.md
+# END AI-DLC:gitignore
+
+# Project working files (Pixel Race)
+node_modules
+dist
+.env
+*.local
+coverage
+*.tsbuildinfo
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sqlite
+# SQLite WAL/SHM sidecars (the bare *.sqlite rule above misses these).
+*.sqlite-shm
+*.sqlite-wal
+# Guard against the "can't register" root cause: a stray, empty SQLite DB
+# accidentally created under apps/api/ (e.g. launching the API from apps/api
+# with a CWD-relative path) must never be committed or silently reused.
+apps/api/database/
+
+# AI Directory
+.claude/
+.kiro/
+aidlc/

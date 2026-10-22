@@ -1,0 +1,37 @@
+{
+  "name": "pixel-race",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Pixel Race — a browser pixel-art racing prediction game (monorepo)",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "database"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:api": "npm run dev --workspace apps/api",
+    "dev:web": "npm run dev --workspace apps/web",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "db:generate": "npm run db:generate --workspace @pixel-race/database",
+    "db:migrate": "npm run db:migrate --workspace @pixel-race/database",
+    "db:seed": "npm run db:seed --workspace @pixel-race/database"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "drizzle-orm": "^0.45.4",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.12.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.13.0"
+  }
+}

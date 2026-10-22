@@ -1,0 +1,48 @@
+# Continuous integration for Pixel Race.
+#
+# Runs on every push and pull request. Installs dependencies from the lockfile
+# (reproducible), then runs lint, typecheck, test, and build across all
+# workspaces. Any failing step fails the workflow (the default for a non-zero
+# exit), which gates merges on a green pipeline.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # Reproducible install straight from package-lock.json.
+      - name: Install dependencies
+        run: npm ci
+
+      # Database migrations must be applied before any workspace build/test that
+      # assumes the schema is generated is unnecessary here (tests migrate an
+      # in-memory DB themselves), so we go straight to the quality gates.
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build

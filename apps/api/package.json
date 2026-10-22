@@ -1,0 +1,30 @@
+{
+  "name": "@pixel-race/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/server.ts",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "@fastify/jwt": "^9.0.1",
+    "@fastify/rate-limit": "^10.1.1",
+    "@pixel-race/database": "*",
+    "@pixel-race/shared-types": "*",
+    "argon2": "^0.41.1",
+    "fastify": "^5.1.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.5"
+  }
+}
